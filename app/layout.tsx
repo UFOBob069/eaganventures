@@ -1,8 +1,12 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 
-const inter = Inter({ subsets: ['latin'] })
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+}
 
 export const metadata: Metadata = {
   title: 'Eagan Ventures',
@@ -44,9 +48,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
-        {children}
-      </body>
+      <body className="overflow-x-hidden" suppressHydrationWarning>{children}</body>
     </html>
   )
 } 
