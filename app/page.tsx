@@ -80,6 +80,12 @@ const portfolioCompanies: PortfolioCompany[] = [
     description: "AI supercomputing and chip technology",
     theme: "AI & ML"
   },
+  {
+    name: "Mentra",
+    logo: "/logos/mentra.jpg",
+    description: "AI-powered platform connecting neurodivergent individuals with inclusive employers",
+    theme: "AI & ML"
+  },
 
   // Blockchain / Crypto Companies
   {
@@ -190,6 +196,12 @@ const portfolioCompanies: PortfolioCompany[] = [
     name: "Liquid Death",
     logo: "/logos/liquid.jpg",
     description: "Canned water with attitude",
+    theme: "Other"
+  },
+  {
+    name: "Aalo Atomics",
+    logo: "/logos/aalo.jpg",
+    description: "Mass-manufactured nuclear power plants for clean energy solutions",
     theme: "Other"
   }
 ];
@@ -418,7 +430,7 @@ export default function Home() {
             exploring new technologies to understand their capabilities and potential.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
             {/* MoonTower Business */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
               <div className="h-48 sm:h-64 relative">
@@ -500,24 +512,78 @@ export default function Home() {
               </div>
             </div>
             
-            {/* OptimizeBnb.ai */}
+            {/* AgentMoneyTrack.com */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
               <div className="h-48 sm:h-64 relative">
                 <Image
-                  src="/projects/optimizebnb.jpg"
-                  alt="OptimizeBnb.ai"
+                  src="/projects/agentmoneytrack.jpg"
+                  alt="AgentMoneyTrack.com"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="p-4 sm:p-6">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2">OptimizeBnb.ai</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">AgentMoneyTrack.com</h3>
                 <p className="text-sm sm:text-base text-gray-600 mb-4">
-                  AI-powered tools to help Airbnb hosts optimize their listings, boost bookings, 
-                  improve guest experiences, and increase revenue.
+                  A comprehensive financial tracking platform designed for real estate agents to 
+                  monitor commissions, expenses, and business performance.
                 </p>
                 <a 
-                  href="http://optimizebnb.ai/" 
+                  href="http://agentmoneytrack.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 font-semibold hover:text-indigo-800 text-sm sm:text-base"
+                >
+                  Visit Website →
+                </a>
+              </div>
+            </div>
+            
+            {/* 1minroofquote.com */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="h-48 sm:h-64 relative">
+                <Image
+                  src="/projects/1minroofquote.jpg"
+                  alt="1minroofquote.com"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-4 sm:p-6">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">1minroofquote.com</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-4">
+                  Fast and accurate roofing quote platform that provides instant estimates 
+                  for residential and commercial roofing projects.
+                </p>
+                <a 
+                  href="http://1minroofquote.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 font-semibold hover:text-indigo-800 text-sm sm:text-base"
+                >
+                  Visit Website →
+                </a>
+              </div>
+            </div>
+            
+            {/* quotewtf.com */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="h-48 sm:h-64 relative">
+                <Image
+                  src="/projects/quotewtf.jpg"
+                  alt="quotewtf.com"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-4 sm:p-6">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">quotewtf.com</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-4">
+                  A unique quote generation platform that creates memorable and shareable quotes 
+                  with a modern, engaging interface.
+                </p>
+                <a 
+                  href="http://quotewtf.com/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-indigo-600 font-semibold hover:text-indigo-800 text-sm sm:text-base"
