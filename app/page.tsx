@@ -97,6 +97,7 @@ const featuredInvestments = [
     desc: "Elon Musk's AI company building Grok and frontier AI reasoning models.",
     tag: 'AI',
     logo: '/logos/xai.png',
+    badge: 'Acquired',
   },
   {
     name: 'Figure',
@@ -115,6 +116,7 @@ const featuredInvestments = [
     desc: 'Purpose-built AI supercomputing chip technology for training the largest models.',
     tag: 'AI',
     logo: '/logos/cerebras.jpg',
+    badge: 'IPO',
   },
 ];
 
@@ -122,6 +124,7 @@ interface PortfolioCompany {
   name: string;
   logo: string | null;
   category: 'AI / ML' | 'Blockchain / Crypto' | 'Aerospace' | 'Healthcare' | 'Media / Entertainment' | 'Other';
+  badge?: string;
 }
 
 const portfolioCompanies: PortfolioCompany[] = [
@@ -153,7 +156,7 @@ const portfolioCompanies: PortfolioCompany[] = [
   { name: 'Sandbox VR',     logo: '/logos/sandboxvr.jpg',  category: 'Media / Entertainment' },
   { name: 'Enhanced Games', logo: '/logos/enhanced.jpg',   category: 'Media / Entertainment' },
   { name: 'Betr',           logo: '/logos/betr.jpg',       category: 'Media / Entertainment' },
-  { name: 'Jackpocket',     logo: '/logos/jackpocket.jpg', category: 'Media / Entertainment' },
+  { name: 'Jackpocket',     logo: '/logos/jackpocket.jpg', category: 'Media / Entertainment', badge: 'Acquired' },
   // Other
   { name: 'Stripe',        logo: '/logos/stripe.jpg', category: 'Other' },
   { name: 'Liquid Death',  logo: '/logos/liquid.jpg', category: 'Other' },
@@ -490,6 +493,16 @@ export default function Home() {
                       className="absolute top-0 left-0 right-0 h-[2px]"
                       style={{ background: 'linear-gradient(90deg, #3b82f6, #7c3aed)' }}
                     />
+                    {/* Status badge */}
+                    {company.badge && (
+                      <span className={`absolute top-4 right-5 text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide ${
+                        company.badge === 'IPO'
+                          ? 'bg-emerald-100 text-emerald-700'
+                          : 'bg-violet-100 text-violet-700'
+                      }`}>
+                        {company.badge}
+                      </span>
+                    )}
                     {/* Logo or initials */}
                     {company.logo ? (
                       <div className="w-11 h-11 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center mb-5 overflow-hidden">
@@ -551,7 +564,16 @@ export default function Home() {
                               </span>
                             )}
                           </div>
-                          <span className="text-[13px] font-medium text-gray-700 truncate">{company.name}</span>
+                          <div className="flex flex-col min-w-0">
+                            <span className="text-[13px] font-medium text-gray-700 truncate">{company.name}</span>
+                            {company.badge && (
+                              <span className={`text-[9px] font-bold uppercase tracking-wide mt-0.5 ${
+                                company.badge === 'IPO' ? 'text-emerald-600' : 'text-violet-600'
+                              }`}>
+                                {company.badge}
+                              </span>
+                            )}
+                          </div>
                         </div>
                       ))}
                     </div>
