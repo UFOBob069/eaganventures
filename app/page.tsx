@@ -130,7 +130,6 @@ interface PortfolioCompany {
 const portfolioCompanies: PortfolioCompany[] = [
   // AI / ML (featured companies removed to avoid duplication)
   { name: 'Hugging Face',  logo: '/logos/hugging.png',   category: 'AI / ML' },
-  { name: 'Respell',       logo: '/logos/respell.jpg',   category: 'AI / ML' },
   { name: 'TaxGPT',        logo: '/logos/taxgpt.jpg',    category: 'AI / ML' },
   { name: 'Cr8tr',         logo: '/logos/cr8tr.jpg',     category: 'AI / ML' },
   { name: 'Multion',       logo: '/logos/Multion.png',   category: 'AI / ML' },
@@ -154,7 +153,7 @@ const portfolioCompanies: PortfolioCompany[] = [
   { name: 'PearPop',        logo: '/logos/PearPop.jpg',    category: 'Media / Entertainment' },
   { name: 'Limewire',       logo: '/logos/limewire.png',   category: 'Media / Entertainment' },
   { name: 'Sandbox VR',     logo: '/logos/sandboxvr.jpg',  category: 'Media / Entertainment' },
-  { name: 'Enhanced Games', logo: '/logos/enhanced.jpg',   category: 'Media / Entertainment' },
+  { name: 'Enhanced Games', logo: '/logos/enhanced.jpg',   category: 'Media / Entertainment', badge: 'IPO via SPAC' },
   { name: 'Betr',           logo: '/logos/betr.jpg',       category: 'Media / Entertainment' },
   { name: 'Jackpocket',     logo: '/logos/jackpocket.jpg', category: 'Media / Entertainment', badge: 'Acquired' },
   // Other
@@ -496,7 +495,7 @@ export default function Home() {
                     {/* Status badge */}
                     {company.badge && (
                       <span className={`absolute top-4 right-5 text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wide ${
-                        company.badge === 'IPO'
+                        company.badge?.startsWith('IPO')
                           ? 'bg-emerald-100 text-emerald-700'
                           : 'bg-violet-100 text-violet-700'
                       }`}>
@@ -568,7 +567,7 @@ export default function Home() {
                             <span className="text-[13px] font-medium text-gray-700 truncate">{company.name}</span>
                             {company.badge && (
                               <span className={`text-[9px] font-bold uppercase tracking-wide mt-0.5 ${
-                                company.badge === 'IPO' ? 'text-emerald-600' : 'text-violet-600'
+                                company.badge?.startsWith('IPO') ? 'text-emerald-600' : 'text-violet-600'
                               }`}>
                                 {company.badge}
                               </span>
