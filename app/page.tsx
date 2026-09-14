@@ -744,6 +744,26 @@ export default function Home() {
         </section>
 
         {/* ============================================================
+            REGULATORY DISCLOSURE
+        ============================================================ */}
+        <section className="border-t border-white/[0.08]" style={{ backgroundColor: '#010810' }}>
+          <div className="max-w-[1200px] mx-auto px-6 py-8">
+            <div className="rounded-xl border border-amber-500/30 bg-amber-500/[0.06] px-6 py-5 flex gap-4 items-start">
+              {/* Warning icon */}
+              <svg className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+              </svg>
+              <div>
+                <p className="text-[11px] font-bold text-amber-400 uppercase tracking-[0.12em] mb-2">Regulatory Disclosure</p>
+                <p className="text-[13px] text-slate-300 leading-relaxed">
+                  Eagan Ventures LLC is a Texas-registered investment adviser. This website describes the personal investment and business activities of David Eagan and is not an offer of investment advisory services or a solicitation to become an advisory client. Nothing on this website constitutes investment advice or a recommendation to buy or sell any security. Registration as an investment adviser does not imply any particular level of skill or training.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================
             LEGAL DISCLAIMER + FOOTER
         ============================================================ */}
         <section className="py-10 border-t border-white/[0.05]" style={{ backgroundColor: '#010810' }}>
