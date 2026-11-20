@@ -1,3 +1,5 @@
+// Company events, not claims about realized returns or sales of David's holdings.
+// Verified against linked company announcements / filings on November 19, 2026.
 export type PortfolioMilestone = {
   kind: "ipo" | "acquired" | "announced";
   label: string;
@@ -199,15 +201,6 @@ export const portfolioCategories: PortfolioCompany["category"][] = [
   "Media / Entertainment",
   "Other",
 ];
-
-// Company events, not claims about realized returns or sales of David's holdings.
-// Verified against linked company announcements / filings on November 19, 2026.
-export const completedMilestones = [
-  ...featuredInvestments,
-  ...portfolioCompanies,
-].filter(
-  (company) => company.milestone && company.milestone.kind !== "announced",
-);
 
 export const projects = [
   {

@@ -17,7 +17,6 @@ import {
 import InvestmentShowcase from "./components/InvestmentShowcase";
 import PortfolioDirectory from "./components/PortfolioDirectory";
 import ScrollReveal from "./components/ScrollReveal";
-import PortfolioMilestones from "./components/PortfolioMilestones";
 
 export default function Home() {
   return (
@@ -125,7 +124,6 @@ export default function Home() {
               believe are moving us forward.
             </p>
           </div>
-          <PortfolioMilestones />
           <div className="section-meta">
             <span>Selected investments</span>
             <span>
