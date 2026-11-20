@@ -1,22 +1,55 @@
-export const featuredInvestments = [
+export type PortfolioMilestone = {
+  kind: "ipo" | "acquired" | "announced";
+  label: string;
+  detail: string;
+  source: string;
+};
+
+export type FeaturedInvestment = {
+  name: string;
+  desc: string;
+  tag: string;
+  logo: string;
+  milestone?: PortfolioMilestone;
+};
+
+export const featuredInvestments: FeaturedInvestment[] = [
   {
     name: "SpaceX",
     desc: "Reusable rockets, Starlink, and the mission to make humanity multiplanetary.",
     tag: "Aerospace",
     logo: "/logos/spacex.png",
+    milestone: {
+      kind: "ipo",
+      label: "IPO",
+      detail: "NASDAQ: SPCX · June 2026",
+      source: "https://ir.spacex.com/faqs-and-contact/",
+    },
   },
   {
     name: "Anthropic",
     desc: "Safety-focused AI research lab and creator of the Claude family of models.",
     tag: "AI",
     logo: "/logos/Anthropic.jpg",
+    milestone: {
+      kind: "ipo",
+      label: "IPO",
+      detail: "NASDAQ: ANT · November 2026",
+      source:
+        "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+    },
   },
   {
     name: "xAI",
     desc: "Elon Musk's AI company building Grok and frontier AI reasoning models.",
     tag: "AI",
     logo: "/logos/xai.png",
-    badge: "Acquired",
+    milestone: {
+      kind: "acquired",
+      label: "Acquired",
+      detail: "By SpaceX · February 2026",
+      source: "https://x.ai/news/xai-joins-spacex",
+    },
   },
   {
     name: "Figure",
@@ -35,7 +68,13 @@ export const featuredInvestments = [
     desc: "Purpose-built AI supercomputing chip technology for training the largest models.",
     tag: "AI",
     logo: "/logos/cerebras.jpg",
-    badge: "IPO",
+    milestone: {
+      kind: "ipo",
+      label: "IPO",
+      detail: "NASDAQ: CBRS · May 2026",
+      source:
+        "https://investors.cerebras.ai/shareholder-services/investor-faqs",
+    },
   },
 ];
 
@@ -49,12 +88,22 @@ export interface PortfolioCompany {
     | "Healthcare"
     | "Media / Entertainment"
     | "Other";
-  badge?: string;
+  milestone?: PortfolioMilestone;
 }
 
 export const portfolioCompanies: PortfolioCompany[] = [
   // AI / ML (featured companies removed to avoid duplication)
-  { name: "Hugging Face", logo: "/logos/hugging.png", category: "AI / ML" },
+  {
+    name: "Hugging Face",
+    logo: "/logos/hugging.png",
+    category: "AI / ML",
+    milestone: {
+      kind: "announced",
+      label: "Acquisition announced",
+      detail: "NVIDIA · Pending close",
+      source: "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/",
+    },
+  },
   { name: "TaxGPT", logo: "/logos/taxgpt.jpg", category: "AI / ML" },
   { name: "Cr8tr", logo: "/logos/cr8tr.jpg", category: "AI / ML" },
   { name: "Multion", logo: "/logos/Multion.png", category: "AI / ML" },
@@ -114,14 +163,26 @@ export const portfolioCompanies: PortfolioCompany[] = [
     name: "Enhanced Games",
     logo: "/logos/enhanced.jpg",
     category: "Media / Entertainment",
-    badge: "IPO via SPAC",
+    milestone: {
+      kind: "ipo",
+      label: "Public via SPAC",
+      detail: "NYSE: ENHA · May 2026",
+      source:
+        "https://www.sec.gov/Archives/edgar/data/1956439/000119312526364151/d38462ds1.htm",
+    },
   },
   { name: "Betr", logo: "/logos/betr.jpg", category: "Media / Entertainment" },
   {
     name: "Jackpocket",
     logo: "/logos/jackpocket.jpg",
     category: "Media / Entertainment",
-    badge: "Acquired",
+    milestone: {
+      kind: "acquired",
+      label: "Acquired",
+      detail: "By DraftKings · May 2024",
+      source:
+        "https://ir.aboutdraftkings.com/news/news-details/2024/DraftKings-Completes-Acquisition-of-Jackpocket-05-23-2024/default.aspx",
+    },
   },
   // Other
   { name: "Stripe", logo: "/logos/stripe.jpg", category: "Other" },
@@ -139,7 +200,22 @@ export const portfolioCategories: PortfolioCompany["category"][] = [
   "Other",
 ];
 
+// Company events, not claims about realized returns or sales of David's holdings.
+// Verified against linked company announcements / filings on November 19, 2026.
+export const completedMilestones = [
+  ...featuredInvestments,
+  ...portfolioCompanies,
+].filter(
+  (company) => company.milestone && company.milestone.kind !== "announced",
+);
+
 export const projects = [
+  {
+    name: "Moontower Business",
+    desc: "Conversations with founders, investors, and community leaders. An Austin-rooted business podcast I co-founded and produce.",
+    link: "https://moontowerbusiness.com/",
+    emoji: "🎙️",
+  },
   {
     name: "Doxie Dynasty",
     desc: "The ultimate dachshund card game — build your pack, survive chaos cards, and be crowned ruler.",

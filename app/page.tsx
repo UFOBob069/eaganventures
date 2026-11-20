@@ -6,6 +6,8 @@ import {
   Linkedin,
   Mail,
   Sparkles,
+  Headphones,
+  Radio,
 } from "lucide-react";
 import {
   featuredInvestments,
@@ -15,6 +17,7 @@ import {
 import InvestmentShowcase from "./components/InvestmentShowcase";
 import PortfolioDirectory from "./components/PortfolioDirectory";
 import ScrollReveal from "./components/ScrollReveal";
+import PortfolioMilestones from "./components/PortfolioMilestones";
 
 export default function Home() {
   return (
@@ -122,6 +125,7 @@ export default function Home() {
               believe are moving us forward.
             </p>
           </div>
+          <PortfolioMilestones />
           <div className="section-meta">
             <span>Selected investments</span>
             <span>
@@ -231,6 +235,71 @@ export default function Home() {
             <h2>
               What&apos;s <span>next?</span>
             </h2>
+            <article
+              className="podcast-feature"
+              aria-labelledby="podcast-heading"
+            >
+              <div className="podcast-art">
+                <Image
+                  src="/projects/moontower-podcast.jpg"
+                  alt="Moontower Business podcast cover"
+                  width={360}
+                  height={360}
+                  sizes="(max-width: 760px) 180px, 300px"
+                />
+                <div className="podcast-wave" aria-hidden="true">
+                  {[
+                    18, 32, 24, 46, 60, 34, 52, 72, 42, 28, 56, 38, 22, 44, 64,
+                    30, 48, 20,
+                  ].map((height, index) => (
+                    <span key={index} style={{ height }} />
+                  ))}
+                </div>
+              </div>
+              <div className="podcast-copy">
+                <p className="eyebrow">
+                  <Radio size={18} aria-hidden="true" /> In the conversation
+                </p>
+                <h3 id="podcast-heading">
+                  Moontower
+                  <br />
+                  Business.
+                </h3>
+                <p>
+                  Big ideas. Real people. Conversations with the founders,
+                  investors, and leaders building what comes next.
+                </p>
+                <p className="podcast-role">
+                  Co-founded & produced by David Eagan · Hosted by Joseph
+                  O&apos;Bell
+                </p>
+                <div className="podcast-actions">
+                  <a
+                    href="https://moontowerbusiness.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button button-light"
+                  >
+                    <Headphones size={18} aria-hidden="true" /> Explore the
+                    podcast
+                  </a>
+                  <a
+                    href="https://open.spotify.com/show/1ffGDEnDolncAj4xA753TA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Spotify <ArrowUpRight size={15} aria-hidden="true" />
+                  </a>
+                  <a
+                    href="https://podcasts.apple.com/us/podcast/moontower-business/id1507993317"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Apple Podcasts <ArrowUpRight size={15} aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
+            </article>
             <div className="contact-bottom">
               <p>
                 Building something? Exploring an idea?

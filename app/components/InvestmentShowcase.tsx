@@ -1,24 +1,19 @@
 "use client";
 import Image from "next/image";
 import { useRef } from "react";
+import type { FeaturedInvestment } from "../../data/portfolio";
+import MilestoneBadge from "./MilestoneBadge";
 import {
   motion,
   useReducedMotion,
   useScroll,
   useTransform,
 } from "framer-motion";
-type Company = {
-  name: string;
-  desc: string;
-  tag: string;
-  logo: string;
-  badge?: string;
-};
 function InvestmentCard({
   company,
   index,
 }: {
-  company: Company;
+  company: FeaturedInvestment;
   index: number;
 }) {
   const ref = useRef<HTMLElement>(null);
@@ -50,10 +45,13 @@ function InvestmentCard({
       <div className="investment-copy">
         <div className="investment-label">
           <span>Selected investment</span>
-          {company.badge && (
-            <span className="status-badge">{company.badge}</span>
-          )}
         </div>
+        {company.milestone && (
+          <MilestoneBadge
+            milestone={company.milestone}
+            company={company.name}
+          />
+        )}
         <h3>{company.name}</h3>
         <p>{company.desc}</p>
         <div className="investment-bottom">
@@ -67,7 +65,7 @@ function InvestmentCard({
 export default function InvestmentShowcase({
   companies,
 }: {
-  companies: Company[];
+  companies: FeaturedInvestment[];
 }) {
   return (
     <div className="featured-stack">
