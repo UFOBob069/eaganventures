@@ -1,15 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Disable ESLint during builds to prevent failing on linting errors
-  eslint: {
-    // Only run ESLint in development, not during builds
-    ignoreDuringBuilds: true,
-  },
-  // Disable type checking during builds to prevent failing on TypeScript errors
-  typescript: {
-    // Only run type checking in development, not during builds
-    ignoreBuildErrors: true,
-  },
+  // Keep compilation and file tracing scoped to this repository.
+  turbopack: { root: __dirname },
+  outputFileTracingRoot: __dirname,
   // Optimize images
   images: {
     unoptimized: true,
@@ -21,7 +14,7 @@ const nextConfig = {
   // Add trailing slash to URLs
   trailingSlash: true,
   // Increase build output detail
-  output: 'standalone',
-}
+  output: "standalone",
+};
 
-module.exports = nextConfig 
+module.exports = nextConfig;
