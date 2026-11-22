@@ -17,8 +17,12 @@ import {
 import InvestmentShowcase from "./components/InvestmentShowcase";
 import PortfolioDirectory from "./components/PortfolioDirectory";
 import ScrollReveal from "./components/ScrollReveal";
+import { getLatestPodcast } from "../lib/latest-podcast";
 
-export default function Home() {
+export const revalidate = 3600;
+
+export default async function Home() {
+  const latestPodcast = await getLatestPodcast();
   return (
     <>
       <ScrollReveal />
@@ -160,20 +164,38 @@ export default function Home() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="project-card"
+                  className={`project-card${project.featured ? " project-featured" : ""}`}
                   data-animate
                 >
-                  <div className="project-top">
-                    <span className="project-emoji" aria-hidden="true">
-                      {project.emoji}
-                    </span>
-                    <ArrowUpRight size={24} />
+                  <div className="project-preview">
+                    <div className="project-browser-bar" aria-hidden="true">
+                      <i />
+                      <i />
+                      <i />
+                      <span>
+                        {new URL(project.link).hostname.replace("www.", "")}
+                      </span>
+                    </div>
+                    <Image
+                      src={project.image}
+                      alt={`${project.name} website preview`}
+                      width={1280}
+                      height={800}
+                      sizes="(max-width: 760px) 90vw, (max-width: 1100px) 45vw, 55vw"
+                    />
                   </div>
-                  <h3>{project.name}</h3>
-                  <p>{project.desc}</p>
-                  <span className="project-domain">
-                    {new URL(project.link).hostname.replace("www.", "")}
-                  </span>
+                  <div className="project-details">
+                    <p className="eyebrow">{project.category}</p>
+                    <h3>{project.name}</h3>
+                    <p>{project.desc}</p>
+                    <p className="project-contribution">
+                      {project.contribution}
+                    </p>
+                    <span className="project-cta">
+                      {project.cta}{" "}
+                      <ArrowUpRight size={20} aria-hidden="true" />
+                    </span>
+                  </div>
                 </a>
               ))}
             </div>
@@ -271,6 +293,31 @@ export default function Home() {
                   Co-founded & produced by David Eagan · Hosted by Joseph
                   O&apos;Bell
                 </p>
+                <a
+                  className="podcast-latest"
+                  href={latestPodcast.notesUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>
+                    Latest conversation
+                    {latestPodcast.number
+                      ? ` · EP. ${latestPodcast.number}`
+                      : ""}
+                  </span>
+                  <strong>
+                    {latestPodcast.name}{" "}
+                    <ArrowUpRight size={19} aria-hidden="true" />
+                  </strong>
+                  <time dateTime={latestPodcast.date}>
+                    {new Intl.DateTimeFormat("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                      timeZone: "UTC",
+                    }).format(new Date(latestPodcast.date))}
+                  </time>
+                </a>
                 <div className="podcast-actions">
                   <a
                     href="https://moontowerbusiness.com/"

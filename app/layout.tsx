@@ -13,6 +13,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.eaganventures.com"),
+  alternates: { canonical: "/" },
   title: "David Eagan — Operator, Investor, Builder",
   description:
     "Technology operator, investor, and builder based in Austin. Previously Senior Director at Expedia Group (Vrbo). Investing in AI, crypto, marketplaces, and consumer software.",
@@ -26,13 +28,20 @@ export const metadata: Metadata = {
     title: "David Eagan — Operator, Investor, Builder",
     description:
       "Technology operator, investor, and builder based in Austin. Previously Senior Director at Expedia Group.",
-    url: "https://eaganventures.com",
+    url: "https://www.eaganventures.com",
     siteName: "Eagan Ventures",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
+    creator: "@Eagan218",
+    images: [
+      {
+        url: "/opengraph-image",
+        alt: "David Eagan — Operator. Investor. Builder.",
+      },
+    ],
     title: "David Eagan — Operator, Investor, Builder",
     description: "Technology operator, investor, and builder based in Austin.",
   },

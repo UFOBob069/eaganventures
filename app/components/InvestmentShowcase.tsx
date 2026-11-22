@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
 import type { FeaturedInvestment } from "../../data/portfolio";
 import MilestoneBadge from "./MilestoneBadge";
@@ -54,6 +55,14 @@ function InvestmentCard({
         )}
         <h3>{company.name}</h3>
         <p>{company.desc}</p>
+        <a
+          className="featured-website"
+          href={company.website}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore {company.name} <ArrowUpRight size={18} aria-hidden="true" />
+        </a>
         <div className="investment-bottom">
           <span>{company.tag}</span>
           <span aria-hidden="true">✳</span>

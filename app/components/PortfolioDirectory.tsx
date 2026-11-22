@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { useRef, useState } from "react";
 import {
   motion,
@@ -76,6 +77,17 @@ function CompanyTile({
           <h4>{company.name}</h4>
           <p>{company.category}</p>
         </div>
+        <p className="company-description">{company.description}</p>
+        <a
+          className="company-website"
+          href={company.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${company.linkLabel || "Visit website"}: ${company.name}`}
+        >
+          {company.linkLabel || "Explore company"}{" "}
+          <ArrowUpRight size={17} aria-hidden="true" />
+        </a>
         {company.milestone && (
           <MilestoneBadge
             milestone={company.milestone}
